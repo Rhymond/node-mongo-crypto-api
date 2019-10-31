@@ -10,6 +10,32 @@ To run tests and application run:
 docker-compose up
 ```
 
+# Endpoints
+
+Currently there is only two endpoints to work with item:
+
+* Save:
+
+```curl
+curl -v -XPOST -H "Content-type: application/json" -d '{
+	"id": "item-id",
+	"encryption_key": "password",
+	"value": "{}"
+}' 'http://localhost:3000/item'
+```
+
+* Get:
+
+```curl
+curl -v -XGET -H "Content-type: application/json" 'http://localhost:3000/item/:item-id?key=password'
+```
+
+**Things to note:**
+
+* `:item-id` can be regex expression.
+* Errors are handled gracefully and logged to stdout.
+
+
 # Technical decisions
 
 For encrypting/decrypting given value api is using "aes-256-cbc" algorithm with static vector set in docker-compose file as environment variable.
