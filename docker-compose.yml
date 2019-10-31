@@ -1,5 +1,4 @@
 version: '3'
-
 services:
   app:
     build:
@@ -13,6 +12,9 @@ services:
     working_dir: /home/node/app
     links:
       - mongodb
+    environment:
+      ENCRYPTION_VECTOR: b62151909b045e08
+      APP_PORT: 3000
     command: sh -c "yarn run test && yarn start"
   mongodb:
     image: mongo

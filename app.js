@@ -28,5 +28,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(require("./routes"));
 app.use(errorHandler);
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.listen(process.env.APP_PORT, () =>
+  console.log(`App listening on port ${port}!`)
+);
 module.exports = app;
