@@ -48,4 +48,4 @@ Linter: Eslint with Prettier
 Testing: Jest
 
 # TODO
-[] e2e tests
+- [ ] e2e tests
